@@ -5,9 +5,11 @@ import { useEffect, useMemo, useState } from "react";
 type Region =
   | "China"
   | "Asia"
+  | "Central Asia"
   | "Europe"
   | "Middle East"
   | "North America"
+  | "Russia"
   | "Caribbean"
   | "Latin America"
   | "Southeast Asia"
@@ -44,6 +46,17 @@ const markets: Market[] = [
   { country: "Finland", city: "Helsinki", region: "Europe", timeZone: "Europe/Helsinki" },
   { country: "Austria", city: "Vienna", region: "Europe", timeZone: "Europe/Vienna" },
   { country: "Switzerland", city: "Zurich", region: "Europe", timeZone: "Europe/Zurich" },
+  { country: "Russia", city: "Moscow", region: "Russia", timeZone: "Europe/Moscow" },
+  { country: "Russia", city: "Saint Petersburg", region: "Russia", timeZone: "Europe/Moscow" },
+  { country: "Russia", city: "Yekaterinburg", region: "Russia", timeZone: "Asia/Yekaterinburg" },
+  { country: "Russia", city: "Novosibirsk", region: "Russia", timeZone: "Asia/Novosibirsk" },
+  { country: "Russia", city: "Vladivostok", region: "Russia", timeZone: "Asia/Vladivostok" },
+  { country: "Kazakhstan", city: "Astana", region: "Central Asia", timeZone: "Asia/Almaty" },
+  { country: "Kazakhstan", city: "Almaty", region: "Central Asia", timeZone: "Asia/Almaty" },
+  { country: "Uzbekistan", city: "Tashkent", region: "Central Asia", timeZone: "Asia/Tashkent" },
+  { country: "Kyrgyzstan", city: "Bishkek", region: "Central Asia", timeZone: "Asia/Bishkek" },
+  { country: "Tajikistan", city: "Dushanbe", region: "Central Asia", timeZone: "Asia/Dushanbe" },
+  { country: "Turkmenistan", city: "Ashgabat", region: "Central Asia", timeZone: "Asia/Ashgabat" },
   { country: "Kuwait", city: "Kuwait City", region: "Middle East", timeZone: "Asia/Kuwait" },
   { country: "Saudi Arabia", city: "Riyadh", region: "Middle East", timeZone: "Asia/Riyadh" },
   { country: "United Arab Emirates", city: "Dubai", region: "Middle East", timeZone: "Asia/Dubai" },
@@ -113,6 +126,8 @@ const markets: Market[] = [
 const regionFilters: Array<Exclude<Region, "China"> | "All"> = [
   "All",
   "Europe",
+  "Russia",
+  "Central Asia",
   "Middle East",
   "North America",
   "Caribbean",
@@ -264,6 +279,8 @@ export default function Home() {
   const groupedCards = useMemo(() => {
     const order: Array<Exclude<Region, "China">> = [
       "Europe",
+      "Russia",
+      "Central Asia",
       "Middle East",
       "North America",
       "Caribbean",
