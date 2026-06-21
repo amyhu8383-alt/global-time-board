@@ -1,5 +1,11 @@
 .next
+.next-build
 node_modules
 out
+.env*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 *.log
 tsconfig.tsbuildinfo
